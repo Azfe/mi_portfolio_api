@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.config import settings
+from app.core.config import settings
 from app.database.database import connect_to_mongo, close_mongo_connection
 from app.routes.work_experience_route import router as work_experience_router
 from app.routes.education_route import router as education_router
