@@ -47,17 +47,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-🔄 Actualizar dependencias (opcional):
+#### 🔄 Actualizar dependencias (opcional)
 
 ```bash
 # Reinstalar todas las dependencias
 pip uninstall -y -r requirements.txt
 pip install -r requirements.txt
 
-
 # Actualizar un paquete específico
-
-```bash
 pip install --upgrade nombre-del-paquete
 ```
 
