@@ -1,9 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.database.database import connect_to_mongo, close_mongo_connection
-from app.routes.work_experience_route import router as work_experience_router
-from app.routes.education_route import router as education_router
+from app.infrastructure.database import connect_to_mongo, close_mongo_connection
+from app.api.routes.work_experience_route import router as work_experience_router
+from app.api.routes.education_route import router as education_router
+from app.api.routes.profile import router as profile
+from app.api.routes.skills import router as skills
+from app.api.routes.experiences import router as experiences
+from app.api.routes.cv import router as cv
 
 # Crear aplicación FastAPI
 app = FastAPI(
@@ -39,6 +43,13 @@ async def root():
         "docs": "/docs"
     }
 
+
 # Incluir rutas
 app.include_router(work_experience_router, prefix="/api/v1")
 app.include_router(education_router, prefix="/api/v1")
+
+#Routes Issue #14: Añadir modulos profile, skills, experiences, cv
+app.include_router(profile, prefix="/api/v1")
+app.include_router(skills, prefix="/api/v1")
+app.include_router(experiences, prefix="/api/v1")
+app.include_router(cv, prefix="/api/v1")
